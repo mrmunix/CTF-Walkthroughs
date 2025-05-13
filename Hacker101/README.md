@@ -5,4 +5,4 @@
 Completed Walkthroughs:
 | Difficutly | Name | Skills |
 |----------|-------|-------|
-|Trivial | [A little something to get you started](ALittleSomething/ALittleSomething)|Web|
+|Trivial | [A little something to get you started](ALittleSomething/)|Web|
