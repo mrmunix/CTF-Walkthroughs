@@ -1,2 +1,2 @@
 # Sites
-- [[CTF/Hacker101/main | Hacker 101]]
+- [Hacker 101](CTF/Hacker101/main)
