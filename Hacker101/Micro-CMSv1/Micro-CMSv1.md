@@ -3,12 +3,12 @@ Difficulty: East
 Skills: Web
 Flags: 4
 
-## Walkthrough
+# Walkthrough
 Let's start with the name:
 CMS is a Content Management System, so even before loading it up, I can see that it will probably be about some lightweight cms they give us
 
 Loading the page we get:
-![[startpage.png]]
+![Can't Find Image](./Images/startpage.png)
 
 Plan of attack: Click on each option and peruse....
 
@@ -22,7 +22,7 @@ As I wait to get burp started, here's a quick tip: Use multiple monitors.... I a
 
 In the intruder, I put marks around the 1 in the get request, select a payload of number from 1 to 100 and let it rip. I have the community edition so this may take a while.
 
-![[TestingIntruder.png]]
+![Can't Find Image](./Images/TestingIntruder.png)
 
 I'm also quickly going to navigate the provided pages to see what numbers it gives me
 
@@ -39,7 +39,7 @@ the rest give me 404 not found.
 
 Back to page 1 (Testing)
 If I select Edit this page, it brings me here:
-![[editpage.png]]
+![Can't Find Image](./Images/editpage.png)
 It tells me Markdown is supported but scripts are not.
 
 I'm going to try a few things: 
@@ -54,7 +54,7 @@ My though was maybe I can use this to find a link to some flag.txt page, but upo
 Wow. ok 1 down 3 to go.
 
 So now we go to the Markdown Test page:
-![[MarkdownTestPage.png]]
+![Can't Find Image](./Images/MarkdownTestPage.png)
 I see up top there is an "Edit this page" link and "Some button" down below. This screams "TWO FLAGS OVER HERE!" to me.
 
 So we go to edit this page, I see that the button is simply created with html flags I know that any mention of the word "script" is banned, so maybe this will only be one flag? We shall see.
@@ -67,18 +67,18 @@ The button tags can use the onClick method to put in some javascript, but I don'
 Ok... a little bit random, but I realized the edit pages took you to `https://<url>/pages/edit/<number>`
 so i went to the edit page for number 4 and got another flag...
 
-![[edit4flag.png]]
+![Can't Find Image](./Images/edit4flag.png)
 
 Well.. I shut off my proxy cause I thought it was causing issues, so it took me a suuuper long time to find the 3rd flag. But once I reconnected it, I saw that after I edited the page (I'm sure it was there before too), I added `onClick="alert(123)` to the button tag to test it out, but in the response shown in burpsuit the button had a `flag=<flag>` attribute already associated. \*sigh* sometimes it really is that easy. 
 
 Ok on to flag #4
 
 For our last link: Create New Page
-![[createNewPage.png]]
+![Can't Find Image](./Images/createNewPage.png)
 let's just put some random content and look at the response
 
-![[createpagecontent.png]]
-![[createpageburp.png]]
+![Can't Find Image](./Images/createpagecontent.png)
+![Can't Find Image](./Images/createpageburp.png)
 cool little note, this created a page "page/9" and the edit page is "edit/9" which is pretty neat.
 
 I'm gonna be honest, i'm a little stuck and started asking for hints. turns out, on the hits page, it says I found Flag 0, Flag 2, and Flag 3. Which means I'm missing flag 1.
